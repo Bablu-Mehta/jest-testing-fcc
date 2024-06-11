@@ -45,10 +45,49 @@
 
 // toThrow() its for error handling it checks for any error occurrence of the error. it is very essential for error handling in the testing.
 // its use when you want to expect to throw an error by a particular function.
-const myFunction = require('./sum')
+// const myFunction = require('./sum')
 
-test("throws on invalid input", () => {
-  expect(() => {
-    myFunction('numb');
-  }).toThrow();
+// test("throws on invalid input", () => {
+//   expect(() => {
+//     myFunction('numb');
+//   }).toThrow();
+// });
+
+// ====================================================================================
+
+//asynchronous testing
+
+// const fetchData = require("./sum");
+
+// test("the data is peanut butter", (done) => {
+//   function callback(data) {
+//     try {
+//       expect(data).toBe("peanut butter");
+//       done();
+//     } catch (error) {
+//       done(error);
+//     }
+//   }
+//   fetchData(callback);
+// });
+
+//promise testing for both cases resolved and rejected
+
+const fetchPromise = require("./sum");
+//for resolved case
+
+// test("the data is peanut butter", () => {
+//   return expect(fetchPromise()).resolves.toBe("peanut butter");
+// });
+
+//for rejected case
+// test('the fetch fails with an error',()=>{
+//   return expect(fetchPromise()).rejects.toThrow('error')
+// })
+
+//for async and await going to use the same function fetchPromise for this.
+
+test("the data is peanut butter", async () => {
+  const data = await fetchPromise();
+  expect(data).toBe("peanut butter");
 });
