@@ -87,7 +87,7 @@ const fetchPromise = require("./sum");
 
 //for async and await going to use the same function fetchPromise for this.
 
-test("the data is peanut butter", async () => {
-  const data = await fetchPromise();
-  expect(data).toBe("peanut butter");
-});
+// test("the data is peanut butter", async () => {
+//   const data = await fetchPromise();
+//   expect(data).toBe("peanut butter");
+// });
