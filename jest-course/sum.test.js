@@ -91,3 +91,33 @@ const fetchPromise = require("./sum");
 //   const data = await fetchPromise();
 //   expect(data).toBe("peanut butter");
 // });
+
+// ===========================================================================
+
+//Mock Functions and spies
+
+//mock functions
+//example of a basic mock function implementation or syntax
+// const mockCallback = jest.fn((x) => 42 + x);
+// mockCallback(0);
+
+// test("mock implementation of a basic function", () => {
+//   const mock = jest.fn((x) => 42 + x);
+//   expect(mock(1)).toBe(43);
+//   expect(mock).toHaveBeenCalledWith(1);
+// });
+
+//spies
+
+test("spying on a method of an object", () => {
+  const video = {
+    play() {
+      return true;
+    },
+  };
+
+  const spy = jest.spyOn(video, "play");
+  video.play();
+  expect(spy).toHaveBeenCalled();
+  spy.mockRestore();
+});
